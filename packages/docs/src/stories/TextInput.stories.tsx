@@ -12,7 +12,7 @@ export default {
           as="label"
           css={{ display: 'flex', flexDirection: 'column', gap: '$2' }}
         >
-          <Text size={'sm'}>Email Address</Text>
+          <Text size="sm">Email Address</Text>
           {Story()}
         </Box>
       )
