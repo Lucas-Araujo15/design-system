@@ -3,7 +3,7 @@
 - [X] Text 
 - [X] Heading
 - [X] Box
-- [ ] Button
+- [X] Button
 - [ ] TextInput
 - [ ] TextArea
 - [ ] Checkbox
