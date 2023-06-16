@@ -6,8 +6,29 @@ export default {
   tags: ['autodocs'],
   component: Text,
   args: {
+    size: 'md',
     children:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, quisquam? Eum vitae illum nulla quibusdam voluptas, facere impedit quam error architecto numquam ab esse quos unde asperiores beatae fugiat. Ut?',
+  },
+  argTypes: {
+    size: {
+      options: [
+        'xxs',
+        'xs',
+        'sm',
+        'md',
+        'lg',
+        'xl',
+        '2xl',
+        '4xl',
+        '5xl',
+        '6xl',
+        '7xl',
+        '8xl',
+        '9xl',
+      ],
+      control: { type: 'inline-radio' },
+    },
   },
 } as Meta<TextProps>
 

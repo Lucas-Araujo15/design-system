@@ -9,6 +9,13 @@ export default {
     src: 'https://github.com/lucas-araujo15.png',
     alt: 'Lucas Araujo',
   },
+  argTypes: {
+    src: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
 } as Meta<AvatarProps>
 
 export const Primary: StoryObj<AvatarProps> = {}
