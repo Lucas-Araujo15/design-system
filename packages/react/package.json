@@ -1,5 +1,5 @@
 {
-  "name": "@ignite-ui/react",
+  "name": "@2023-ignite-ui/react",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
@@ -14,9 +14,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@ignite-ui/eslint-config": "*",
-    "@ignite-ui/tokens": "*",
-    "@ignite-ui/ts-config": "*",
+    "@2023-ignite-ui/eslint-config": "*",
+    "@2023-ignite-ui/tokens": "*",
+    "@2023-ignite-ui/ts-config": "*",
     "@types/react": "^18.2.12",
     "@types/react-dom": "^18.2.5",
     "react": "^18.2.0",
