@@ -45,7 +45,8 @@ var colors = {
   ignite300: "#00B37E",
   ignite500: "#00875F",
   ignite700: "#015F43",
-  ignite900: "#00291D"
+  ignite900: "#00291D",
+  test: "#FFF"
 };
 
 // src/space.ts
@@ -80,7 +81,8 @@ var radii = {
 // src/fonts.ts
 var fonts = {
   default: "Roboto, sans-serif",
-  code: "monospace"
+  code: "monospace",
+  info: "Inter"
 };
 
 // src/font-sizes.ts

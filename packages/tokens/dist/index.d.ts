@@ -13,6 +13,7 @@ declare const colors: {
     readonly ignite500: "#00875F";
     readonly ignite700: "#015F43";
     readonly ignite900: "#00291D";
+    readonly test: "#FFF";
 };
 
 declare const space: {
@@ -45,6 +46,7 @@ declare const radii: {
 declare const fonts: {
     readonly default: "Roboto, sans-serif";
     readonly code: "monospace";
+    readonly info: "Inter";
 };
 
 declare const fontSizes: {
