@@ -10,14 +10,23 @@ export default {
   decorators: [
     (Story) => {
       const [open, setOpen] = useState(false)
+
+      function handleSetOpen(isOpen: boolean) {
+        setOpen(isOpen)
+      }
+
       return (
         <>
-          <Button onClick={() => setOpen(!open)}>Agendar</Button>
+          <Button onClick={() => setOpen(true)}>Agendar</Button>
           {Story({
             args: {
               isOpen: open,
               title: 'Agendamento realizado',
-              description: 'Descrição',
+              description: new Intl.DateTimeFormat('pt-BR', {
+                dateStyle: 'full',
+                timeStyle: 'short',
+              }).format(new Date()),
+              setOpen: handleSetOpen,
             },
           })}
         </>

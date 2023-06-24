@@ -563,7 +563,7 @@ var hide = keyframes2({
 var ToastRoot = styled(Toast.Root, {
   boxSizing: "border-box",
   background: "$gray800",
-  border: "3px solid $gray600",
+  border: "2px solid $gray600",
   width: "22.5rem",
   borderRadius: "$sm",
   lineHeight: "$base",
@@ -602,19 +602,30 @@ var ToastDescription = styled(Toast.Description, {
   fontSize: "$sm",
   margin: 0
 });
-var ToastViewport = styled(Toast.Viewport, {});
+var ToastViewport = styled(Toast.Viewport, {
+  position: "fixed",
+  bottom: 0,
+  right: 0,
+  display: "flex",
+  flexDirection: "column",
+  gap: "$3",
+  maxWidth: "100vw",
+  zIndex: 2147483647,
+  outline: "none",
+  width: 390
+});
 
 // src/components/Toast/index.tsx
 import { X } from "phosphor-react";
 import { jsx as jsx6, jsxs as jsxs5 } from "react/jsx-runtime";
-function Toast2({ title, description, isOpen = true }) {
+function Toast2({ title, description, isOpen, setOpen }) {
   return /* @__PURE__ */ jsxs5(ToastProvider, { swipeDirection: "right", children: [
     /* @__PURE__ */ jsxs5(ToastRoot, { open: isOpen, children: [
       /* @__PURE__ */ jsxs5("div", { children: [
         /* @__PURE__ */ jsx6(ToastTitle, { children: title }),
         /* @__PURE__ */ jsx6(ToastDescription, { asChild: true, children: /* @__PURE__ */ jsx6("p", { children: description }) })
       ] }),
-      /* @__PURE__ */ jsx6("button", { children: /* @__PURE__ */ jsx6(X, { size: 20, weight: "regular" }) })
+      /* @__PURE__ */ jsx6("button", { onClick: () => setOpen(false), children: /* @__PURE__ */ jsx6(X, { size: 20, weight: "regular" }) })
     ] }),
     /* @__PURE__ */ jsx6(ToastViewport, {})
   ] });

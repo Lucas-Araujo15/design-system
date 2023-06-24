@@ -1,4 +1,3 @@
-import { ReactNode } from 'react'
 import {
   ToastDescription,
   ToastProvider,
@@ -12,10 +11,10 @@ export interface ToastProps {
   title: string
   description: string
   isOpen: boolean
-  children: ReactNode
+  setOpen: (isOpen: boolean) => void
 }
 
-export function Toast({ title, description, isOpen = true }: ToastProps) {
+export function Toast({ title, description, isOpen, setOpen }: ToastProps) {
   return (
     <ToastProvider swipeDirection="right">
       <ToastRoot open={isOpen}>
@@ -25,7 +24,7 @@ export function Toast({ title, description, isOpen = true }: ToastProps) {
             <p>{description}</p>
           </ToastDescription>
         </div>
-        <button>
+        <button onClick={() => setOpen(false)}>
           <X size={20} weight="regular" />
         </button>
       </ToastRoot>

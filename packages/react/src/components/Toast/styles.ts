@@ -25,7 +25,7 @@ const hide = keyframes({
 export const ToastRoot = styled(Toast.Root, {
   boxSizing: 'border-box',
   background: '$gray800',
-  border: '3px solid $gray600',
+  border: '2px solid $gray600',
   width: '22.5rem',
 
   borderRadius: '$sm',
@@ -74,4 +74,15 @@ export const ToastDescription = styled(Toast.Description, {
   margin: 0,
 })
 
-export const ToastViewport = styled(Toast.Viewport, {})
+export const ToastViewport = styled(Toast.Viewport, {
+  position: 'fixed',
+  bottom: 0,
+  right: 0,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '$3',
+  maxWidth: '100vw',
+  zIndex: 2147483647,
+  outline: 'none',
+  width: 390,
+})

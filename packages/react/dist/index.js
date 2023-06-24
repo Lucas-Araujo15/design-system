@@ -614,7 +614,7 @@ var hide = (0, import_react3.keyframes)({
 var ToastRoot = styled(Toast.Root, {
   boxSizing: "border-box",
   background: "$gray800",
-  border: "3px solid $gray600",
+  border: "2px solid $gray600",
   width: "22.5rem",
   borderRadius: "$sm",
   lineHeight: "$base",
@@ -653,19 +653,30 @@ var ToastDescription = styled(Toast.Description, {
   fontSize: "$sm",
   margin: 0
 });
-var ToastViewport = styled(Toast.Viewport, {});
+var ToastViewport = styled(Toast.Viewport, {
+  position: "fixed",
+  bottom: 0,
+  right: 0,
+  display: "flex",
+  flexDirection: "column",
+  gap: "$3",
+  maxWidth: "100vw",
+  zIndex: 2147483647,
+  outline: "none",
+  width: 390
+});
 
 // src/components/Toast/index.tsx
 var import_phosphor_react3 = require("phosphor-react");
 var import_jsx_runtime6 = require("react/jsx-runtime");
-function Toast2({ title, description, isOpen = true }) {
+function Toast2({ title, description, isOpen, setOpen }) {
   return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(ToastProvider, { swipeDirection: "right", children: [
     /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(ToastRoot, { open: isOpen, children: [
       /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
         /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ToastTitle, { children: title }),
         /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ToastDescription, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: description }) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("button", { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_phosphor_react3.X, { size: 20, weight: "regular" }) })
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("button", { onClick: () => setOpen(false), children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_phosphor_react3.X, { size: 20, weight: "regular" }) })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ToastViewport, {})
   ] });

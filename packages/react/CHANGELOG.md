@@ -1,5 +1,11 @@
 # @2023-ignite-ui/react
 
+## 4.0.0
+
+### Major Changes
+
+- Add Toast component
+
 ## 3.0.0
 
 ### Major Changes
