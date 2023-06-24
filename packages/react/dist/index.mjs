@@ -539,6 +539,86 @@ function TooltipPopUp({ children, info }) {
     ] }) })
   ] }) });
 }
+
+// src/components/Toast/styles.ts
+import * as Toast from "@radix-ui/react-toast";
+import { keyframes as keyframes2 } from "@stitches/react";
+var ToastProvider = styled(Toast.Provider, {});
+var slideIn2 = keyframes2({
+  from: {
+    transform: "translateX(calc(100% + 25px))"
+  },
+  to: {
+    transform: "translateX(0)"
+  }
+});
+var hide = keyframes2({
+  from: {
+    opacity: 1
+  },
+  to: {
+    opacity: 0
+  }
+});
+var ToastRoot = styled(Toast.Root, {
+  boxSizing: "border-box",
+  background: "$gray800",
+  border: "3px solid $gray600",
+  width: "22.5rem",
+  borderRadius: "$sm",
+  lineHeight: "$base",
+  padding: "$3 $5",
+  display: "flex",
+  justifyContent: "space-between",
+  div: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "$1"
+  },
+  '&[data-state="open"]': {
+    animation: `${slideIn2} 150ms cubic-bezier(0.16, 1, 0.3, 1)`
+  },
+  '&[data-state="closed"]': {
+    animation: `${hide} 100ms ease-in`
+  },
+  button: {
+    all: "unset",
+    display: "flex",
+    cursor: "pointer",
+    svg: {
+      color: "$gray200"
+    }
+  }
+});
+var ToastTitle = styled(Toast.Title, {
+  fontFamily: "$default",
+  fontWeight: "$bold",
+  color: "$white",
+  fontSize: "$xl"
+});
+var ToastDescription = styled(Toast.Description, {
+  fontFamily: "$default",
+  color: "$gray200",
+  fontSize: "$sm",
+  margin: 0
+});
+var ToastViewport = styled(Toast.Viewport, {});
+
+// src/components/Toast/index.tsx
+import { X } from "phosphor-react";
+import { jsx as jsx6, jsxs as jsxs5 } from "react/jsx-runtime";
+function Toast2({ title, description, isOpen = true }) {
+  return /* @__PURE__ */ jsxs5(ToastProvider, { swipeDirection: "right", children: [
+    /* @__PURE__ */ jsxs5(ToastRoot, { open: isOpen, children: [
+      /* @__PURE__ */ jsxs5("div", { children: [
+        /* @__PURE__ */ jsx6(ToastTitle, { children: title }),
+        /* @__PURE__ */ jsx6(ToastDescription, { asChild: true, children: /* @__PURE__ */ jsx6("p", { children: description }) })
+      ] }),
+      /* @__PURE__ */ jsx6("button", { children: /* @__PURE__ */ jsx6(X, { size: 20, weight: "regular" }) })
+    ] }),
+    /* @__PURE__ */ jsx6(ToastViewport, {})
+  ] });
+}
 export {
   Avatar2 as Avatar,
   Box,
@@ -549,6 +629,7 @@ export {
   Text,
   TextArea,
   TextInput,
+  Toast2 as Toast,
   TooltipPopUp,
   config,
   createTheme,

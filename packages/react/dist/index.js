@@ -68,6 +68,7 @@ __export(src_exports, {
   Text: () => Text,
   TextArea: () => TextArea,
   TextInput: () => TextInput,
+  Toast: () => Toast2,
   TooltipPopUp: () => TooltipPopUp,
   config: () => config,
   createTheme: () => createTheme,
@@ -589,6 +590,86 @@ function TooltipPopUp({ children, info }) {
     ] }) })
   ] }) });
 }
+
+// src/components/Toast/styles.ts
+var Toast = __toESM(require("@radix-ui/react-toast"));
+var import_react3 = require("@stitches/react");
+var ToastProvider = styled(Toast.Provider, {});
+var slideIn2 = (0, import_react3.keyframes)({
+  from: {
+    transform: "translateX(calc(100% + 25px))"
+  },
+  to: {
+    transform: "translateX(0)"
+  }
+});
+var hide = (0, import_react3.keyframes)({
+  from: {
+    opacity: 1
+  },
+  to: {
+    opacity: 0
+  }
+});
+var ToastRoot = styled(Toast.Root, {
+  boxSizing: "border-box",
+  background: "$gray800",
+  border: "3px solid $gray600",
+  width: "22.5rem",
+  borderRadius: "$sm",
+  lineHeight: "$base",
+  padding: "$3 $5",
+  display: "flex",
+  justifyContent: "space-between",
+  div: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "$1"
+  },
+  '&[data-state="open"]': {
+    animation: `${slideIn2} 150ms cubic-bezier(0.16, 1, 0.3, 1)`
+  },
+  '&[data-state="closed"]': {
+    animation: `${hide} 100ms ease-in`
+  },
+  button: {
+    all: "unset",
+    display: "flex",
+    cursor: "pointer",
+    svg: {
+      color: "$gray200"
+    }
+  }
+});
+var ToastTitle = styled(Toast.Title, {
+  fontFamily: "$default",
+  fontWeight: "$bold",
+  color: "$white",
+  fontSize: "$xl"
+});
+var ToastDescription = styled(Toast.Description, {
+  fontFamily: "$default",
+  color: "$gray200",
+  fontSize: "$sm",
+  margin: 0
+});
+var ToastViewport = styled(Toast.Viewport, {});
+
+// src/components/Toast/index.tsx
+var import_phosphor_react3 = require("phosphor-react");
+var import_jsx_runtime6 = require("react/jsx-runtime");
+function Toast2({ title, description, isOpen = true }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(ToastProvider, { swipeDirection: "right", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(ToastRoot, { open: isOpen, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ToastTitle, { children: title }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ToastDescription, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: description }) })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("button", { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_phosphor_react3.X, { size: 20, weight: "regular" }) })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ToastViewport, {})
+  ] });
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Avatar,
@@ -600,6 +681,7 @@ function TooltipPopUp({ children, info }) {
   Text,
   TextArea,
   TextInput,
+  Toast,
   TooltipPopUp,
   config,
   createTheme,
